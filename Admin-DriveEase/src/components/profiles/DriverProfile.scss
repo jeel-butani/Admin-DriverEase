@@ -1,0 +1,29 @@
+.driver-profile-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .driver-details {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 20px;
+
+        p {
+            margin-bottom: 10px;
+
+            strong {
+                font-weight: bold;
+            }
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    }
+}

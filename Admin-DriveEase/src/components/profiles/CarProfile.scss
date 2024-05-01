@@ -1,0 +1,31 @@
+.car-profile-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+
+    h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .car-details {
+        border: 1px solid #ccc;
+        padding: 20px;
+        border-radius: 5px;
+
+        p {
+            margin: 10px 0;
+
+            strong {
+                margin-right: 5px;
+            }
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+    }
+}
