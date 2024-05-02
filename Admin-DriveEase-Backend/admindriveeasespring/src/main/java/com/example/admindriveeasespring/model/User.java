@@ -6,14 +6,19 @@
 
 package com.example.admindriveeasespring.model;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.validation.constraints.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
+@CrossOrigin("*")
 @Document(collection = "users")
 public class User {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String userId;
 
     @NotBlank(message = "Name is mandatory")

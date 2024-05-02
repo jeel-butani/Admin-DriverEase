@@ -82,6 +82,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./BikeTable.scss";
 import BikeTableAction from "./BikeTableAction";
+import AreaTop from "../dashboard/areaTop/AreaTop";
 
 const BikeTable = () => {
   const [bikeData, setBikeData] = useState([]);
@@ -100,51 +101,54 @@ const BikeTable = () => {
   }, []);
 
   return (
-    <section className="content-area-table">
-      <div className="data-table-info">
-        <h4 className="data-table-title">Bike Information</h4>
-      </div>
-      <div className="data-table-diagram">
-        <table>
-          <thead>
-            <tr>
-              {/* <th>Bike ID</th> */}
-              <th>Bike Name</th>
-              {/* <th>Seats</th> */}
-              {/* <th>Registration Number</th> */}
-              {/* <th>Amount</th> */}
-              {/* <th>Image</th> */}
-              {/* <th>Total Count</th> */}
-              {/* <th>Available Count</th> */}
-              <th>Company Name</th>
-              {/* <th>Type</th> */}
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {bikeData.map((bike) => (
-              <tr key={bike.bikeId}>
-                {/* <td>{bike.bikeId}</td> */}
-                <td>{bike.bikeName}</td>
-                {/* <td>{bike.seats}</td> */}
-                {/* <td>{bike.registrationNumber}</td> */}
-                {/* <td>{bike.amount}</td> */}
-                {/* <td>
+    <>
+      <AreaTop />
+      <section className="content-area-table">
+        <div className="data-table-info">
+          <h4 className="data-table-title">Bike Information</h4>
+        </div>
+        <div className="data-table-diagram">
+          <table>
+            <thead>
+              <tr>
+                {/* <th>Bike ID</th> */}
+                <th>Bike Name</th>
+                {/* <th>Seats</th> */}
+                {/* <th>Registration Number</th> */}
+                {/* <th>Amount</th> */}
+                {/* <th>Image</th> */}
+                {/* <th>Total Count</th> */}
+                {/* <th>Available Count</th> */}
+                <th>Company Name</th>
+                {/* <th>Type</th> */}
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {bikeData.map((bike) => (
+                <tr key={bike.bikeId}>
+                  {/* <td>{bike.bikeId}</td> */}
+                  <td>{bike.bikeName}</td>
+                  {/* <td>{bike.seats}</td> */}
+                  {/* <td>{bike.registrationNumber}</td> */}
+                  {/* <td>{bike.amount}</td> */}
+                  {/* <td>
                   <img src={bike.image_url} alt="Bike" />
                 </td> */}
-                {/* <td>{bike.totalCount}</td> */}
-                {/* <td>{bike.availableCount}</td> */}
-                <td>{bike.companyName}</td>
-                {/* <td>{bike.type}</td> */}
-                <td className="dt-cell-action">
-                  <BikeTableAction />
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </section>
+                  {/* <td>{bike.totalCount}</td> */}
+                  {/* <td>{bike.availableCount}</td> */}
+                  <td>{bike.companyName}</td>
+                  {/* <td>{bike.type}</td> */}
+                  <td className="dt-cell-action">
+                    <BikeTableAction />
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </>
   );
 };
 

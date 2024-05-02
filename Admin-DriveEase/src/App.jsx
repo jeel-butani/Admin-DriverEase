@@ -9,7 +9,7 @@ import BaseLayout from "./layout/BaseLayout";
 import { Dashboard, PageNotFound } from "./screens";
 import Statistics from "./screens/dashboard/statistics";
 import FormDr from "./screens/dashboard/FormDr";
-import UserComp from "./components/Maincomponents/UserComp";
+// import UserComp from "./components/Maincomponents/UserComp";
 import DriverForm from "./components/Maincomponents/DriverForm";
 import CompanyForm from "./components/Maincomponents/CompanyForm";
 import CarForm from "./components/Maincomponents/CarForm";
@@ -25,6 +25,8 @@ import CarTable from "./components/tables/CarTable";
 import CarProfile from "./components/profiles/CarProfile";
 import BikeTable from "./components/tables/BikeTable";
 import BikeProfile from "./components/profiles/BikeProfile";
+import UserTable from "./components/tables/UserTable";
+import UserProfile from "./components/profiles/UserProfile";
 function App() {
   const { theme, toggleTheme } = useContext(ThemeContext);
 
@@ -45,7 +47,7 @@ function App() {
             <Route path="/" element={<Dashboard />} />
             <Route path="/statistics" element={<Statistics />} />
             <Route path="/stat" element={<Statistics />} />
-            <Route path="/user" element={<UserComp />} />
+            <Route path="/user" element={<UserTable/>} />
             <Route path="/form" element={<FormDr />} />
             <Route path="/driverform" element={<DriverForm />} />
             <Route path="/companyform" element={<CompanyForm />} />
@@ -62,6 +64,7 @@ function App() {
             <Route path="/carprofile" element={<CarProfile/>}/>
             <Route path="/bike" element={<BikeTable/>}/>
             <Route path="/bikeprofile" element={<BikeProfile/>}/>
+            <Route path="/userprofile" element={<UserProfile/>} />
             {/* <Route path="/company" element={<CompanyTable/>}/> */}
             <Route path="*" element={<PageNotFound />} />
           </Route>

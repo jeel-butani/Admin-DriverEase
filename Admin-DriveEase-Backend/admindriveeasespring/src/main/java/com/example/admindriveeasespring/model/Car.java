@@ -5,6 +5,8 @@ package com.example.admindriveeasespring.model;
 
 //package com.example.driveease.beans;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -16,6 +18,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 @Document(collection = "cars")
 public class Car {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private ObjectId id;
 
     @NotBlank(message = "Car name is mandatory")

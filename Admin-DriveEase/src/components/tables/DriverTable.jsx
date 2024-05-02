@@ -1,17 +1,19 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import AreaTableAction from "./DriverTableAction";
 import "./DriverTable.scss";
+import AreaTop from "../dashboard/areaTop/AreaTop";
 
 const TABLE_HEADS = [
-  "Driver ID",
+  // "Driver ID",
   "Name",
-  "License Number",
-  "License Photo",
-  "Aadhar Card Number",
-  "Price",
+  // "License Number",
+  // "License Photo",
+  // "Aadhar Card Number",
+  // "Price",
   "Location",
-  "Phone Number",
-  "Vehicle Type",
+  // "Phone Number",
+  // "Vehicle Type",
   "Action",
 ];
 
@@ -31,7 +33,24 @@ const TABLE_DATA = [
 ];
 
 const DriverTable = () => {
+  const [driverData, setDriverData] = useState([]);
+
+  useEffect(() => {
+    const fetchDriverData = async () => {
+      try {
+        const response = await axios.get("http://localhost:8080/api/drivers/");
+        setDriverData(response.data);
+      } catch (error) {
+        console.error("Error fetching driver data:", error);
+      }
+    };
+
+    fetchDriverData();
+  }, []);
+
   return (
+    <>
+    <AreaTop/>
     <section className="content-area-table">
       <div className="data-table-info">
         <h4 className="data-table-title">Driver Information</h4>
@@ -46,30 +65,20 @@ const DriverTable = () => {
             </tr>
           </thead>
           <tbody>
-            {TABLE_DATA.map((dataItem, index) => {
-              return (
-                <tr key={index}>
-                  <td>{dataItem.driver_id}</td>
-                  <td>{dataItem.name}</td>
-                  <td>{dataItem.licenceNumber}</td>
-                  <td>
-                    <img src={dataItem.licencePhotoUrl} alt="License" />
-                  </td>
-                  <td>{dataItem.aadharCardNumber}</td>
-                  <td>${dataItem.price.toFixed(2)}</td>
-                  <td>{dataItem.location}</td>
-                  <td>{dataItem.phoneNumber}</td>
-                  <td>{dataItem.typeOfVehicle}</td>
-                  <td className="dt-cell-action">
-                    <AreaTableAction />
-                  </td>
-                </tr>
-              );
-            })}
+            {driverData.map((driver) => (
+              <tr key={driver.driverId}>
+                <td>{driver.name}</td>
+                <td>{driver.location}</td>
+                <td className="dt-cell-action">
+                  <AreaTableAction />
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
     </section>
+    </>
   );
 };
 
