@@ -90,9 +90,11 @@
 // export default CarTable;
 
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import CarTableAction from "./CarTableAction";
 import "./CarTable.scss";
+
+import axios from "axios";
 
 const TABLE_HEADS = [
   "Car ID",
@@ -125,6 +127,23 @@ const TABLE_DATA = [
 ];
 
 const CarTable = () => {
+
+  const [carData, setCarData] = useState([]);
+
+  const fetchCarData = async () => {
+    try {
+      const response = await axios.get("http://localhost:8080/api/cars/");
+      setCarData(response.data);
+    } catch (error) {
+      console.error("Error fetching bike data:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchCarData();
+  }, []);
+
+
   return (
     <section className="content-area-table">
       <div className="data-table-info">
@@ -140,11 +159,11 @@ const CarTable = () => {
             </tr>
           </thead>
           <tbody>
-            {TABLE_DATA.map((dataItem, index) => {
+            {TABLE_DATA.map((car) => {
               return (
-                <tr key={index}>
-                  <td>{dataItem.car_id}</td>
-                  <td>{dataItem.car_name}</td>
+                <tr key={car.carId}>
+                  {/* <td>{dataItem.car_id}</td> */}
+                  <td>{dataItem.carName}</td>
                   <td>{dataItem.transmission_type}</td>
                   <td>{dataItem.seats}</td>
                   <td>{dataItem.registration_number}</td>

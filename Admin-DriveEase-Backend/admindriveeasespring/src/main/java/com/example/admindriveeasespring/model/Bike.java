@@ -5,14 +5,25 @@
 
 package com.example.admindriveeasespring.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.validation.constraints.*;
+
+import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
+@CrossOrigin("*")
+@Entity
+@Data
 @Document(collection = "bikes")
 public class Bike {
 
+
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String bikeId;
 
     @NotBlank(message = "Bike name is mandatory")
