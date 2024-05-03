@@ -53,7 +53,4 @@ public class CarController {
         carService.deleteCar(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
-
-
-
 }

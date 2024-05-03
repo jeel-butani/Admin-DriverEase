@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import "./CompanyProfile.scss"; // Assuming you have a separate SCSS file for styling
+import "./CompanyProfile.scss";
 import AreaTop from "../dashboard/areaTop/AreaTop";
 
 const CompanyProfile = () => {
-  const { companyId } = useParams(); // Assuming you have set up React Router for parameter passing
+  const { companyId } = useParams(); 
   const [companyProfile, setCompanyProfile] = useState(null);
 
-  // Dummy company data for testing
+  
   const dummyCompanyData = {
     companyId: 1,
     name: "Example Company",
@@ -18,10 +18,10 @@ const CompanyProfile = () => {
   };
 
   useEffect(() => {
-    // Fetch company profile data from API based on companyId
+    
     const fetchCompanyProfile = async () => {
       try {
-        // For demonstration purposes, setting the company profile data directly from dummyCompanyData
+        
         setCompanyProfile(dummyCompanyData);
       } catch (error) {
         console.error(error);
@@ -30,7 +30,7 @@ const CompanyProfile = () => {
 
     fetchCompanyProfile();
 
-    // Cleanup function to prevent memory leaks
+    
     return () => {
       setCompanyProfile(null);
     };

@@ -24,9 +24,9 @@ const BikeForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission, e.g., send data to server
+    
     console.log(formData);
-    // Reset form fields after submission
+    
     setFormData({
       bikeName: "",
       seats: "",

@@ -13,7 +13,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
-@CrossOrigin("*")
+@CrossOrigin("http://localhost:5173")
 @Document(collection = "users")
 public class User {
 

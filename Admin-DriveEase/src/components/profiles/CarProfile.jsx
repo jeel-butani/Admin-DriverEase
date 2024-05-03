@@ -22,10 +22,10 @@ const CarProfile = () => {
   };
 
   useEffect(() => {
-    // Fetch car profile data from API based on carId
+    
     const fetchCarProfile = async () => {
       try {
-        // For demonstration purposes, setting the car profile data directly from dummyCarData
+        
         setCarProfile(dummyCarData);
       } catch (error) {
         console.error(error);
@@ -34,7 +34,7 @@ const CarProfile = () => {
 
     fetchCarProfile();
 
-    // Cleanup function to prevent memory leaks
+    
     return () => {
       setCarProfile(null);
     };

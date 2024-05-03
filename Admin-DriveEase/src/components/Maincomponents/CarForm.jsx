@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./CarForm.scss";
 import AreaTop from "../dashboard/areaTop/AreaTop";
+import { useParams } from "react-router-dom";
 
 const CarForm = () => {
+  const {id}=useParams();
   const [formData, setFormData] = useState({
     carName: "",
+    fuelType:"",
     transmissionType: "",
     seats: "",
     registrationNumber: "",
@@ -20,8 +23,46 @@ const CarForm = () => {
     setFormData({
       ...formData,
       [name]: value,
-    });
+    })
   };
+
+  useEffect(() => {
+  const fetchCar = async () => {
+    try {
+      const response = await fetch(
+        `http://localhost:8080/api/cars/${id}`
+      );
+      const data = await response.json();
+      
+      
+      const defaultFormData = {
+        carName: "",
+        fuelType: "",
+        transmissionType: "",
+        seats: "",
+        registrationNumber: "",
+        companyName: "",
+        amount: "",
+        imageUrl: "",
+        totalCount: "",
+        availableCount: "",
+      };
+      
+      // Merge default values with fetched data
+      const mergedData = { ...defaultFormData, ...data };
+      
+      // Update form data state
+      setFormData(mergedData);
+    } catch (error) {
+      console.error("Error :", error.message);
+    }
+  };
+  
+  fetchCar();
+}, [id]);
+
+
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -30,6 +71,7 @@ const CarForm = () => {
     // Reset form fields after submission
     setFormData({
       carName: "",
+      fuelType: "",
       transmissionType: "",
       seats: "",
       registrationNumber: "",
@@ -54,6 +96,17 @@ const CarForm = () => {
               id="carName"
               name="carName"
               value={formData.carName}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div>
+            <label htmlFor="carName">Fuel Type</label>
+            <input
+              type="text"
+              id="fuelType"
+              name="fuelType"
+              value={formData.fuelType}
               onChange={handleChange}
               required
             />

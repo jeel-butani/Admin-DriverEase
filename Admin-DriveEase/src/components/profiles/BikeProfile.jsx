@@ -4,10 +4,10 @@ import "./BikeProfile.scss";
 import AreaTop from "../dashboard/areaTop/AreaTop";
 
 const BikeProfile = () => {
-  const { bikeId } = useParams(); // Assuming you have set up React Router for parameter passing
+  const { bikeId } = useParams(); 
   const [bikeProfile, setBikeProfile] = useState(null);
 
-  // Dummy bike data for testing
+  
   const dummyBikeData = {
     Bike_id: 1,
     Bike_name: "Honda CB Hornet",
@@ -22,10 +22,10 @@ const BikeProfile = () => {
   };
 
   useEffect(() => {
-    // Fetch bike profile data from API based on bikeId
+    
     const fetchBikeProfile = async () => {
       try {
-        // For demonstration purposes, setting the bike profile data directly from dummyBikeData
+        
         setBikeProfile(dummyBikeData);
       } catch (error) {
         console.error(error);
@@ -34,7 +34,7 @@ const BikeProfile = () => {
 
     fetchBikeProfile();
 
-    // Cleanup function to prevent memory leaks
+    
     return () => {
       setBikeProfile(null);
     };

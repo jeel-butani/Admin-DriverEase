@@ -3,7 +3,6 @@ package com.example.admindriveeasespring.repository;
 //public class CarRepository {
 //}
 
-//package com.example.driveease.repositories;
 
 import com.example.admindriveeasespring.model.Car;
 import org.bson.types.ObjectId;

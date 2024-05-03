@@ -30,7 +30,7 @@ import UserProfile from "./components/profiles/UserProfile";
 function App() {
   const { theme, toggleTheme } = useContext(ThemeContext);
 
-  // adding dark-mode class if the dark mode is set on to the body tag
+  
   useEffect(() => {
     if (theme === DARK_THEME) {
       document.body.classList.add("dark-mode");
@@ -47,24 +47,25 @@ function App() {
             <Route path="/" element={<Dashboard />} />
             <Route path="/statistics" element={<Statistics />} />
             <Route path="/stat" element={<Statistics />} />
-            <Route path="/user" element={<UserTable/>} />
+            <Route path="/user" element={<UserTable />} />
             <Route path="/form" element={<FormDr />} />
             <Route path="/driverform" element={<DriverForm />} />
             <Route path="/companyform" element={<CompanyForm />} />
             <Route path="/carform" element={<CarForm />} />
             <Route path="/userform" element={<UserForm />} />
+            <Route path="/userform/:userId" element={<UserForm />} />
             <Route path="/bikeform" element={<BikeForm />} />
             <Route path="/bookingform" element={<BookingForm />} />
             <Route path="/paymentform" element={<PaymentForm />} />
             <Route path="/driver" element={<DriverTable />} />
             <Route path="/driverprofile" element={<DriverProfile />} />
             <Route path="/company" element={<CompanyTable />} />
-            <Route path="/companyprofile" element={<CompanyProfile/>}/>
-            <Route path="/car" element={<CarTable/>}/>
-            <Route path="/carprofile" element={<CarProfile/>}/>
-            <Route path="/bike" element={<BikeTable/>}/>
-            <Route path="/bikeprofile" element={<BikeProfile/>}/>
-            <Route path="/userprofile" element={<UserProfile/>} />
+            <Route path="/companyprofile" element={<CompanyProfile />} />
+            <Route path="/car" element={<CarTable />} />
+            <Route path="/carprofile" element={<CarProfile />} />
+            <Route path="/bike" element={<BikeTable />} />
+            <Route path="/bikeprofile" element={<BikeProfile />} />
+            <Route path="/userprofile" element={<UserProfile />} />
             {/* <Route path="/company" element={<CompanyTable/>}/> */}
             <Route path="*" element={<PageNotFound />} />
           </Route>

@@ -7,13 +7,9 @@ import {
   MdOutlineAttachMoney,
   MdOutlineBarChart,
   MdOutlineClose,
-  MdOutlineCurrencyExchange,
   MdOutlineGridView,
   MdOutlineLogout,
-  MdOutlineMessage,
-  MdOutlinePeople,
   MdOutlineSettings,
-  MdOutlineShoppingBag,
 } from "react-icons/md";
 import { Link } from "react-router-dom";
 import "./Sidebar.scss";
@@ -116,38 +112,38 @@ const Sidebar = () => {
                 <span className="menu-link-text">Payment</span>
               </Link>
             </li>
-            <li className="menu-item">
+            {/* <li className="menu-item">
               <Link to="/" className="menu-link">
                 <span className="menu-link-icon">
                   <MdOutlineCurrencyExchange size={18} />
                 </span>
                 <span className="menu-link-text">Transactions</span>
               </Link>
-            </li>
-            <li className="menu-item">
+            </li> */}
+            {/* <li className="menu-item">
               <Link to="/" className="menu-link">
                 <span className="menu-link-icon">
                   <MdOutlineShoppingBag size={20} />
                 </span>
                 <span className="menu-link-text">Products</span>
               </Link>
-            </li>
-            <li className="menu-item">
+            </li> */}
+            {/* <li className="menu-item">
               <Link to="/" className="menu-link">
                 <span className="menu-link-icon">
                   <MdOutlinePeople size={20} />
                 </span>
                 <span className="menu-link-text">Customer</span>
               </Link>
-            </li>
-            <li className="menu-item">
+            </li> */}
+            {/* <li className="menu-item">
               <Link to="/" className="menu-link">
                 <span className="menu-link-icon">
                   <MdOutlineMessage size={18} />
                 </span>
                 <span className="menu-link-text">Messages</span>
               </Link>
-            </li>
+            </li> */}
           </ul>
         </div>
 

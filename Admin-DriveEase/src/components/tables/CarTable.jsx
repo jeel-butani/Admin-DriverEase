@@ -173,7 +173,7 @@
 
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./CarTable.scss"; // Assuming you have a separate SCSS file for styling
+import "./CarTable.scss"; 
 import CarTableAction from "./CarTableAction";
 import AreaTop from "../dashboard/areaTop/AreaTop";
 

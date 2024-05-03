@@ -84,10 +84,10 @@ import "./DriverProfile.scss";
 import AreaTop from "../dashboard/areaTop/AreaTop";
 
 const DriverProfile = () => {
-  const { driverId } = useParams(); // Assuming you have set up React Router for parameter passing
+  const { driverId } = useParams();
   const [driverProfile, setDriverProfile] = useState(null);
 
-  // Dummy driver data for testing
+  
   const dummyDriverData = {
     driverId: 1,
     name: "John Doe",
@@ -101,10 +101,10 @@ const DriverProfile = () => {
   };
 
   useEffect(() => {
-    // Fetch driver profile data from API based on driverId
+    
     const fetchDriverProfile = async () => {
       try {
-        // For demonstration purposes, setting the driver profile data directly from dummyDriverData
+        
         setDriverProfile(dummyDriverData);
       } catch (error) {
         console.error(error);
@@ -113,7 +113,7 @@ const DriverProfile = () => {
 
     fetchDriverProfile();
 
-    // Cleanup function to prevent memory leaks
+    
     return () => {
       setDriverProfile(null);
     };
